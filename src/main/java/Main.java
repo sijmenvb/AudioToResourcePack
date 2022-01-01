@@ -9,7 +9,19 @@ public class Main {
 
 	public static void main(String[] args) {
 		System.out.println("running..");
-
+		
+		//
+		File folder = new File("src/main/resources");
+		File[] listOfFiles = folder.listFiles();
+		
+		for (int i = 0; i < listOfFiles.length; i++) {
+			  if (listOfFiles[i].isFile()) {
+			    System.out.println("File " + getFileType(listOfFiles[i]));
+			  } else if (listOfFiles[i].isDirectory()) {
+			    System.out.println("Directory " + listOfFiles[i].getName());
+			  }
+			}
+		/*
 		// variables
 		final String inFilePath = "src/main/resources/conversation engine.mp4";
 		final String outFilePath = "src/main/resources/output2.ogg";
@@ -44,6 +56,12 @@ public class Main {
 			ex.printStackTrace();
 
 		}
-
+		//*/
+	}
+	
+	private static String getFileType(File f) {
+		String s = f.getName();
+		return s.substring(s.lastIndexOf('.')+1);
+		
 	}
 }
