@@ -2,9 +2,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.AudioToResourcePack.app</groupId>
 	<artifactId>AudioToResourcePack</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>Audio to Resource Pack</name>
 	<description>a tool that takes a folder of audio files and convertes it into a resource pack for java minecraft</description>
+
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
 
 
 	<dependencies>
@@ -12,6 +17,16 @@
 			<groupId>ws.schild</groupId>
 			<artifactId>jave-all-deps</artifactId>
 			<version>3.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.32</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.32</version>
 		</dependency>
 		<dependency>
 			<groupId> org.apache.cassandra</groupId>
@@ -36,5 +51,23 @@
 			<version>2.11.0</version>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>audioToResourcePack.Main</mainClass>
+						</manifest>
+					</archive>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
