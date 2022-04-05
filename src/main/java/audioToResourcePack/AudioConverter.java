@@ -125,7 +125,7 @@ public class AudioConverter {
 	}
 
 	private static String getValidName(String s, ArrayList<String> list) {
-		String name = s.substring(0, s.lastIndexOf('.')).replace(" ", "_");
+		String name = s.substring(0, s.lastIndexOf('.')).replace(" ", "_").toLowerCase();
 		String out = name;
 		int i = 1;
 		while (list.contains(out)) {
