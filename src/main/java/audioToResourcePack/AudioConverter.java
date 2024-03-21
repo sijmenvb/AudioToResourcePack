@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.StringUtils;
 
 import ws.schild.jave.Encoder;
 import ws.schild.jave.MultimediaObject;
@@ -125,7 +124,7 @@ public class AudioConverter {
 	}
 
 	private static String getValidName(String s, ArrayList<String> list) {
-		String name = s.substring(0, s.lastIndexOf('.')).replace(" ", "_").toLowerCase();
+		String name = s.substring(0, s.lastIndexOf('.')).replace(" ", "_").replace("'", "").toLowerCase();
 		String out = name;
 		int i = 1;
 		while (list.contains(out)) {

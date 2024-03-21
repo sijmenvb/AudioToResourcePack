@@ -14,7 +14,7 @@ import java.util.zip.ZipOutputStream;
 
 public class ResourcepackGenerator {
 	private static final Exception NullPointerException = null;
-	private String name;
+	private final String name;
 	private ZipOutputStream zipArch;
 	private FileOutputStream f;
 
@@ -118,7 +118,6 @@ public class ResourcepackGenerator {
 		File f = new File("Input");
 		f.mkdir();
 		return f;
-
 	}
 
 	private void deletePreviousResourcepack() {
